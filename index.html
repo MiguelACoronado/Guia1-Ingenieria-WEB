@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miguel · Portafolio personal</title>
+  <meta name="description" content="Portafolio de Miguel, estudiante de la Universidad Manuela Beltrán — matemáticas, testing de software, gestión de proyectos y contabilidad financiera.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- HEADER (landmark: banner) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="brand">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        Miguel<span class="brand-dot">.</span>
+      </p>
+
+      <!-- NAV principal, distinguida con aria-label del nav del footer -->
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="lista-nav-principal">
+          <span class="sr-only">Abrir menú de navegación</span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <ul id="lista-nav-principal">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN (landmark: main, único en la página) -->
+  <main id="contenido-principal">
+
+    <!-- HERO / INICIO -->
+    <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+      <p class="eyebrow">(0.1) Portafolio académico y de proyectos</p>
+      <h1 id="hero-titulo">
+        Construyo orden a partir de datos, código y procesos.
+      </h1>
+      <p class="hero-lede">
+        Soy estudiante en la Universidad Manuela Beltrán. Trabajo en el cruce entre
+        las matemáticas aplicadas, el aseguramiento de calidad de software y la
+        gestión de proyectos — documentando cada proceso con el mismo rigor con el
+        que resolvería una demostración.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-ghost" href="#contacto">Escribirme</a>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ (section + aside) -->
+    <section id="sobre-mi" class="about" aria-labelledby="about-titulo">
+      <p class="eyebrow">(1.0) Sobre mí</p>
+      <h2 id="about-titulo">De la demostración matemática a la especificación de software</h2>
+
+      <div class="about-layout">
+
+        <div class="about-text">
+          <p>
+            Curso estudios en la Universidad Manuela Beltrán, donde combino asignaturas
+            de matemáticas, ingeniería de software y ciencias administrativas.
+            Me interesa particularmente el punto en el que estas disciplinas se tocan:
+            un caso de prueba bien escrito y un teorema bien demostrado comparten la
+            misma exigencia de precisión.
+          </p>
+          <p>
+            Actualmente enfoco mi trabajo académico en tres frentes: la verificación
+            de software mediante casos de prueba en formato Gherkin, la aplicación del
+            estándar PMBOK® a la gestión de proyectos, y la construcción de materiales
+            de estudio interactivos para temas de cálculo y métodos numéricos.
+          </p>
+        </div>
+
+        <!-- ASIDE con contenido relacionado pero independiente del flujo principal -->
+        <aside class="about-facts" aria-labelledby="facts-titulo">
+          <h3 id="facts-titulo">Datos rápidos</h3>
+          <dl>
+            <div class="fact">
+              <dt>Institución</dt>
+              <dd>Universidad Manuela Beltrán (UMB)</dd>
+            </div>
+            <div class="fact">
+              <dt>Áreas de interés</dt>
+              <dd>Testing de software, matemáticas aplicadas, gestión de proyectos</dd>
+            </div>
+            <div class="fact">
+              <dt>Herramientas</dt>
+              <dd>HTML, CSS, SQL, Gherkin/BDD, MathJax, Chart.js</dd>
+            </div>
+            <div class="fact">
+              <dt>Idiomas</dt>
+              <dd>Español (nativo), inglés (intermedio)</dd>
+            </div>
+          </dl>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="skills" aria-labelledby="skills-titulo">
+      <p class="eyebrow">(2.0) Habilidades</p>
+      <h2 id="skills-titulo">Cuatro disciplinas, un mismo método</h2>
+
+      <ul class="skills-grid">
+        <li class="skill-card">
+          <p class="skill-tag" aria-hidden="true">∑</p>
+          <h3>Matemáticas aplicadas</h3>
+          <p>Cálculo diferencial e integral, cálculo multivariable, métodos numéricos
+            (series de Taylor, análisis de error).</p>
+        </li>
+        <li class="skill-card">
+          <p class="skill-tag" aria-hidden="true">✓</p>
+          <h3>Testing de software</h3>
+          <p>Diseño de casos de prueba críticos y de frontera en formato Gherkin (BDD)
+            para módulos funcionales.</p>
+        </li>
+        <li class="skill-card">
+          <p class="skill-tag" aria-hidden="true">◧</p>
+          <h3>Gestión de proyectos</h3>
+          <p>Fundamentos del PMBOK® 7.ª edición: grupos de procesos, planificación y
+            ciclo de vida de proyectos.</p>
+        </li>
+        <li class="skill-card">
+          <p class="skill-tag" aria-hidden="true">$</p>
+          <h3>Contabilidad financiera</h3>
+          <p>Lectura de estados financieros, análisis horizontal, liquidez y
+            rentabilidad.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROYECTOS (flex: 1 col móvil, 3 col escritorio) -->
+    <section id="proyectos" class="projects" aria-labelledby="projects-titulo">
+      <p class="eyebrow">(3.0) Proyectos</p>
+      <h2 id="projects-titulo">Trabajo reciente</h2>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <p class="project-index" aria-hidden="true">01</p>
+          <h3>Casos de prueba Gherkin — Módulo de nómina</h3>
+          <p>
+            Diseño y presentación de casos de prueba críticos e inyectados en
+            formato Gherkin para validar el cálculo de nómina, incluyendo la
+            explicación del escenario ante un panel académico.
+          </p>
+          <p class="project-tags">
+            <span>BDD</span><span>Gherkin</span><span>QA</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <p class="project-index" aria-hidden="true">02</p>
+          <h3>Guía interactiva de métodos numéricos</h3>
+          <p>
+            Material de estudio en HTML sobre series y polinomios de Taylor,
+            análisis del residuo y error de truncamiento, con visualizaciones
+            construidas en MathJax y Chart.js.
+          </p>
+          <p class="project-tags">
+            <span>HTML</span><span>MathJax</span><span>Chart.js</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <p class="project-index" aria-hidden="true">03</p>
+          <h3>Infografías PMBOK® 7.ª edición</h3>
+          <p>
+            Serie de infografías sobre la historia del PMI, certificaciones,
+            grupos de procesos y la fase de planificación, exportadas a PDF
+            para uso como material de repaso.
+          </p>
+          <p class="project-tags">
+            <span>PMBOK®</span><span>Diseño</span><span>PDF</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO: formulario accesible -->
+    <section id="contacto" class="contact" aria-labelledby="contact-titulo">
+      <p class="eyebrow">(4.0) Contacto</p>
+      <h2 id="contact-titulo">Hablemos</h2>
+
+      <div class="contact-layout">
+        <div class="contact-intro">
+          <p>
+            ¿Tienes una idea, una revisión de código o una propuesta académica?
+            Escríbeme usando el formulario y te responderé lo antes posible.
+          </p>
+        </div>
+
+        <form class="contact-form" action="#" method="post" novalidate>
+          <div class="form-row">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email" required
+                   aria-describedby="correo-ayuda">
+            <span id="correo-ayuda" class="form-hint">Nunca compartiremos tu correo con terceros.</span>
+          </div>
+
+          <div class="form-row">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" required>
+          </div>
+
+          <div class="form-row">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (landmark: contentinfo) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Miguel — Universidad Manuela Beltrán.</p>
+
+      <!-- Segundo NAV, diferenciado del principal con aria-label distinto -->
+      <nav aria-label="Navegación de pie de página">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
