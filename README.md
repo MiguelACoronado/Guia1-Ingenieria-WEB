@@ -31,27 +31,4 @@ Proyecto de la Actividad 1 (Laboratorio integrado) — Sesiones 2 y 4.
 - **≥ 768px:** "Sobre mí" y "Contacto" pasan de columna a fila (`flex-direction: row`).
 - **≥ 1024px (escritorio):** proyectos en 3 columnas, tal como pide la actividad.
 
-## Cómo validar
 
-1. **Validación W3C:** subir `index.html` (o pegar el código) en <https://validator.w3.org/>
-   y guardar una captura del resultado sin errores.
-2. **Accesibilidad WAVE:** abrir la página publicada (por ejemplo con GitHub Pages) o el
-   archivo local en el navegador, correr la extensión [WAVE](https://wave.webaim.org/extension/)
-   y verificar que se detecten los landmarks `banner`, `navigation` (x2), `main`, `complementary`
-   y `contentinfo`, y que el formulario no reporte errores de etiquetas.
-3. **Capturas de viewport:** usar las herramientas de desarrollador del navegador (modo
-   responsivo) para capturar la página en tres anchos, por ejemplo 375px (móvil),
-   820px (tablet) y 1440px (escritorio).
-
-## Cómo publicar (GitHub Pages, opcional)
-
-```bash
-git init
-git add .
-git commit -m "Portafolio personal: HTML5 semántico + CSS Flexbox"
-git branch -M main
-git remote add origin https://github.com/<tu-usuario>/portafolio-personal.git
-git push -u origin main
-```
-
-Luego, en **Settings → Pages**, seleccionar la rama `main` para obtener una URL pública.
