@@ -1,0 +1,507 @@
+/* =========================================================
+   TOKENS
+   ========================================================= */
+:root {
+  --ink:        #1C2230;
+  --ink-soft:   #4B5568;
+  --paper:      #F7F4EC;
+  --paper-alt:  #EFEAE0;
+  --line:       #D8D2C2;
+  --amber:      #B5651D;
+  --teal:       #275957;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+
+  --max-width: 1120px;
+  --gap-sm: 0.75rem;
+  --gap-md: 1.5rem;
+  --gap-lg: 3rem;
+}
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    linear-gradient(var(--paper) 0 0) local,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 39px,
+      var(--line) 40px
+    );
+  background-color: var(--paper);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+
+p { margin: 0 0 1em; }
+
+a { color: var(--teal); }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+img { max-width: 100%; display: block; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--amber);
+  margin-bottom: 0.5em;
+}
+
+/* Utilidad accesible: oculta visualmente sin ocultar al lector de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* =========================================================
+   HEADER — flex: logo a la izquierda, nav a la derecha
+   ========================================================= */
+.site-header {
+  background: var(--ink);
+  color: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-md);
+}
+
+.brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--ink);
+  font-size: 1rem;
+}
+.brand-dot { color: var(--amber); }
+
+.primary-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--gap-md);
+  margin: 0;
+  padding: 0;
+}
+.primary-nav a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.25rem 0.1rem;
+  border-bottom: 2px solid transparent;
+}
+.primary-nav a:hover,
+.primary-nav a:focus-visible {
+  border-bottom-color: var(--amber);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--paper);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--paper);
+  position: relative;
+}
+.nav-toggle-bar::before { top: -6px; }
+.nav-toggle-bar::after  { top: 4px; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  max-width: 18ch;
+}
+.hero-lede {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--gap-sm);
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  border: 1px solid var(--ink);
+  transition: transform 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* =========================================================
+   SOBRE MÍ — flex: texto + aside
+   ========================================================= */
+.about {
+  background: var(--paper-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 4rem 1.5rem;
+}
+.about-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+}
+.about-text { flex: 1 1 60%; }
+.about-text p { color: var(--ink-soft); max-width: 68ch; }
+
+.about-facts {
+  flex: 1 1 32%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+}
+.about-facts h3 {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--teal);
+}
+.about-facts dl { margin: 0; }
+.fact { margin-bottom: 1rem; }
+.fact:last-child { margin-bottom: 0; }
+.fact dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.fact dd {
+  margin: 0.15rem 0 0;
+  color: var(--ink);
+}
+
+/* =========================================================
+   HABILIDADES — flex-wrap grid
+   ========================================================= */
+.skills {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+.skills-grid {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-md);
+}
+.skill-card {
+  flex: 1 1 220px;
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  background: var(--paper);
+}
+.skill-tag {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--amber);
+  margin: 0 0 0.4rem;
+}
+.skill-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.skill-card p { color: var(--ink-soft); font-size: 0.92rem; margin: 0; }
+
+/* =========================================================
+   PROYECTOS — 1 col móvil → 3 col escritorio (flex)
+   ========================================================= */
+.projects {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 4rem 1.5rem;
+}
+.projects .eyebrow { color: var(--amber); }
+.projects h2 { color: var(--paper); }
+
+.projects-grid {
+  max-width: var(--max-width);
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;   /* < 768px: una columna */
+  gap: var(--gap-md);
+}
+
+.project-card {
+  flex: 1;
+  background: rgba(247, 244, 236, 0.06);
+  border: 1px solid rgba(247, 244, 236, 0.18);
+  padding: 1.75rem;
+}
+.project-index {
+  font-family: var(--font-mono);
+  color: var(--amber);
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+}
+.project-card h3 { color: var(--paper); font-size: 1.1rem; }
+.project-card p:not(.project-tags) { color: #C9CDD6; font-size: 0.92rem; }
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+}
+.project-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  border: 1px solid rgba(247, 244, 236, 0.3);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  color: var(--paper);
+}
+
+/* =========================================================
+   CONTACTO — flex: intro + formulario
+   ========================================================= */
+.contact {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+}
+.contact-intro { flex: 1 1 34%; }
+.contact-intro p:not(.eyebrow) { color: var(--ink-soft); max-width: 40ch; }
+
+.contact-form {
+  flex: 1 1 58%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.form-row label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--teal);
+}
+.form-row input,
+.form-row textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  background: var(--paper-alt);
+  color: var(--ink);
+}
+.form-hint {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.contact-form .btn { align-self: flex-start; }
+
+/* =========================================================
+   FOOTER — flex: copyright a la izquierda, nav a la derecha
+   ========================================================= */
+.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 1px solid rgba(247, 244, 236, 0.15);
+}
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+.footer-inner p { margin: 0; color: #C9CDD6; }
+.site-footer nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--gap-md);
+  margin: 0;
+  padding: 0;
+}
+.site-footer nav a {
+  color: var(--paper);
+  text-decoration: none;
+}
+.site-footer nav a:hover,
+.site-footer nav a:focus-visible {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   BREAKPOINT 1 — TABLET (>= 600px)
+   Ajustes de espaciado y proyectos en 2 columnas
+   ========================================================= */
+@media (min-width: 600px) {
+  .projects-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .project-card { flex: 1 1 calc(50% - var(--gap-md)); }
+
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* =========================================================
+   BREAKPOINT 2 — ESCRITORIO (>= 768px)
+   about y contacto pasan a fila; sigue en 2 col hasta 1024px
+   ========================================================= */
+@media (min-width: 768px) {
+  .about-layout,
+  .contact-layout {
+    flex-direction: row;
+  }
+
+  .nav-toggle { display: none; } /* el menú siempre es visible desde aquí */
+}
+
+/* =========================================================
+   BREAKPOINT 3 — ESCRITORIO GRANDE (>= 1024px)
+   Layout de tres columnas para proyectos, tal como pide la actividad
+   ========================================================= */
+@media (min-width: 1024px) {
+  .project-card { flex: 1 1 calc(33.333% - var(--gap-md)); }
+}
+
+/* =========================================================
+   NAV MÓVIL — colapsa la lista bajo un botón por debajo de 768px
+   ========================================================= */
+@media (max-width: 767px) {
+  .nav-toggle { display: inline-flex; align-items: center; }
+
+  .primary-nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--ink);
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 0.75rem;
+    border-top: 1px solid rgba(247, 244, 236, 0.15);
+  }
+
+  .primary-nav.is-open ul { display: flex; }
+}
+
+/* =========================================================
+   Accesibilidad de movimiento
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
